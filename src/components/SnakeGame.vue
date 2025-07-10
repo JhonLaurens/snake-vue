@@ -140,7 +140,7 @@ function closeRecords() {
   showRecords.value = false;
 }
 
-function randomFood() {
+function randomFood(): { x: number; y: number } {
   let newFood: { x: number; y: number };
   while (true) {
     newFood = {
