@@ -2,9 +2,9 @@ import { ref } from "vue";
 import { supabase } from "../supabaseClient";
 
 export function useScores() {
-  const scores = ref([]);
+  const scores = ref<any[]>([]);
   const loading = ref(false);
-  const error = ref(null);
+  const error = ref<string | null>(null);
 
   async function fetchScores() {
     loading.value = true;

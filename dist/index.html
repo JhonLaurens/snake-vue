@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/snake-vue/vite.svg" />
+    <!-- Usa favicon relativo para producción (GitHub Pages) -->
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Vue + TS</title>
     <script type="module" crossorigin src="/snake-vue/assets/index-fnPgIgf4.js"></script>
@@ -10,5 +11,6 @@
   </head>
   <body>
     <div id="app"></div>
+    <!-- En desarrollo usa src/main.ts, pero para producción (GitHub Pages) usa el build de Vite -->
   </body>
 </html>

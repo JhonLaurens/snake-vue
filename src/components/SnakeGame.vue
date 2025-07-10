@@ -130,7 +130,7 @@ const running = ref(true);
 const direction = ref("RIGHT");
 const snake = ref<{ x: number; y: number }[]>([]);
 const food = ref({ x: 0, y: 0 });
-let gameInterval: number | null = null;
+let gameInterval: ReturnType<typeof setInterval> | null = null;
 let directionLocked = false;
 
 const showRecords = ref(false);
@@ -141,7 +141,7 @@ function closeRecords() {
 }
 
 function randomFood() {
-  let newFood;
+  let newFood: { x: number; y: number };
   while (true) {
     newFood = {
       x: Math.floor(Math.random() * cols),
@@ -168,7 +168,7 @@ function initGame() {
   level.value = 1;
   speed.value = 100;
   running.value = true;
-  clearInterval(gameInterval);
+  if (gameInterval) clearInterval(gameInterval);
   gameInterval = setInterval(gameLoop, speed.value);
 }
 
@@ -210,7 +210,7 @@ function update() {
     if (score.value % 50 === 0) {
       level.value++;
       speed.value = Math.max(40, speed.value - 10);
-      clearInterval(gameInterval);
+      if (gameInterval) clearInterval(gameInterval);
       gameInterval = setInterval(gameLoop, speed.value);
     }
   } else {
